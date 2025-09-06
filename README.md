@@ -1,6 +1,6 @@
 # Zyra E-commerce Analaysis (2019-2023)
 ## Project Background
-Zyra is a US-based online fashion store that was established in 2019, that offers a wider variety of clothing that include top, bottom,dresses and accessories for men and women.
+Zyra is a US-based online fashion store that was established in 2018, that offers a wider variety of clothing that include top, bottom,dresses and accessories for men and women.
 
 These projects aim to extract actionable insight from Zyra's order, product, and its user dataset. The insights will guide the Product and Marketing teams in adjusting strategies to improve company performance.
 
@@ -14,7 +14,8 @@ The goal is to study key performance metrics across this three core domain:
 
 * Returned and cancellation rate: An evaluation of returned rate and cancellation rate from Zyra sales transaction.
 
-## Insight Deep Dive
+## Executive Summary
 
-### Sales Trends
-<img width="717" height="187" alt="image" src="https://github.com/user-attachments/assets/d421cf9b-8250-4f83-8762-6b0f2ed560ee" />
+### Overview Findings
+
+Zyra’s sales have shown remarkable growth of sales from its lauching date in january 2019. Zyra have recorded a total sales of $2518,653 with total orders of 42,294 and average order value of 87 for duration of 2019 to 2023

@@ -6,10 +6,10 @@ These projects aim to extract actionable insight from Zyra's order, product, and
 
 The goal is to study key performance metrics across this three core domain:
 
-*Sales Trends: An analysis of historical sales patterns, focusing on total sales, total order, average order value and profit margin.
+* Sales Trends: An analysis of historical sales patterns, focusing on total sales, total order, average order value and profit margin.
 
-*Product performance: An assessment of Zyra’s various product categories, understanding the impact on sales and order.
+* Product performance: An assessment of Zyra’s various product categories, understanding the impact on sales and order.
 
-*Customer Behaviour: A study of customer retention and impact of several traffic sources to attract new customers.
+* Customer Behaviour: A study of customer retention and impact of several traffic sources to attract new customers.
 
-*Returned and cancellation rate: An evaluation of returned rate and cancellation rate from Zyra sales transaction.
+* Returned and cancellation rate: An evaluation of returned rate and cancellation rate from Zyra sales transaction.

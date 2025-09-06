@@ -22,8 +22,8 @@ Since its debut in 2019, Zyra has recorded consistent sales growth, increasing f
 ## Inside Deep Dive
 
 ### Sales Trends
-* Since its debuting in e-commerce in 2019, Zyra have recorded a total sales and order volume growth at 250,03% amd 248.64%, respectively withins its first year of operation, which was likely fueled by pandemic.
-* For each year, sales and order volume showed consistent growth for each year in 2020,2021, and 2022.
+* Since its debuting in e-commerce in 2019, Zyra have recorded a total sales and order volume growth at 250% amd 249%, respectively withins its first year of operation, which was likely fueled by pandemic.
+* The consistent growth continued in 2021 with 92% sales growth and 91% order growth, followed by 2022 with 75% sales growth and 74% order growth, respectively.
 * In 2023, sales and order volume showed strong acceleration starting at $91,229 and 1054 orders in may and peaking at $197,131 and 2,267 orders in decembers.
 * The Average Order Value (AOV) fluctuated between $60 and $100 throughout the year, with a noticeable increase in Q4, suggesting that customers tend to place higher-value orders during the year-end period
 

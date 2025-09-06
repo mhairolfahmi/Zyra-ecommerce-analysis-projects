@@ -16,6 +16,10 @@ The goal is to study key performance metrics across this three core domain:
 
 ## Executive Summary
 
-### Overview Findings
+### Overview 
+Since its debut in 2019, Zyra has recorded consistent sales growth, increasing from $53K in total sales in 2019 to $1,286,122 in 2023. This growth was primarily driven by a year-on-year average order volume increase of 129%, while maintaining a stable average order value (AOV) of $86. The top-performing product categories, Bottoms and Tops, contributed 46% of Zyra’s total sales revenue. Between 2019 and 2023, Zyra attracted 25,812 customers who registered through its app
 
-Zyra’s sales have shown remarkable growth of sales from its lauching date in january 2019. Zyra have recorded a total sales of $2518,653 with total orders of 42,294 and average order value of 87 for duration of 2019 to 2023
+##Inside Deep Dive
+
+### Sales Trends
+

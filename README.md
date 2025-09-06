@@ -17,3 +17,4 @@ The goal is to study key performance metrics across this three core domain:
 ## Insight Deep Dive
 
 ### Sales Trends
+<img width="717" height="187" alt="image" src="https://github.com/user-attachments/assets/d421cf9b-8250-4f83-8762-6b0f2ed560ee" />

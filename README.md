@@ -13,3 +13,7 @@ The goal is to study key performance metrics across this three core domain:
 * Customer Behaviour: A study of customer retention and impact of several traffic sources to attract new customers.
 
 * Returned and cancellation rate: An evaluation of returned rate and cancellation rate from Zyra sales transaction.
+
+## Insight Deep Dive
+
+### Sales Trends

@@ -17,15 +17,15 @@ The goal is to study key performance metrics across this three core domain:
 ## Executive Summary
 
 ### Overview 
-Since its debut in 2019, Zyra has recorded increasing in total sales from $53K in 2019 to $1,286,122 in 2023. This growth was primarily driven by a year-on-year average order volume increase of 129%, while maintaining a stable average order value (AOV) of $86. The top-performing product categories, Bottoms and Tops, contributed 46% of Zyra’s total sales revenue with both category recorded a total of $1.14 M of total sales. Between 2019 and 2023, Zyra attracted 25,812 customers who make purchase its products.
+Since its debut in 2019, Zyra has recorded increasing in total sales from $53K in 2019 to $1,286,122 in 2023. This growth was primarily driven by a year-on-year average order volume increase of 129%, while maintaining a stable average order value (AOV) of $86. The top-performing product categories of Zyra is Bottoms and Tops that contributed 46% of Zyra’s total sales revenue. This excellent performance was further supported by the company’s ability to attract 25,812 customers between 2019 and 20233.
 
 ## Inside Deep Dive
 
 ### Sales Trends
 
-*  2019-2022: Both total sales and total orders showed steady growth with an average monthly growth rate of 13%.
-*  2023: the sales and orders volume shows a strong acceleration especially when it second half of the year. Sales rise from $109,932 in July to $197,131 in december, while order volume climbed from 1,251 to 2,267 for a same period. This represents a significant rise, with both metrics recording an approximate 80% monthly growth rate.
-* The Average Order Value (AOV) fluctuated between $60 and $100 throughout the year 2019 to 2023, with a noticeable increase in Q4, suggesting that customers tend to place higher-value orders during the year-end period
+*  **2019-2022**: Both total sales and total orders showed steady growth with an average monthly growth rate of 13%.
+*  **2023**: the sales and orders volume shows a strong acceleration especially when it second half of the year. Sales rise from $109,932 in July to $197,131 in december, while order volume climbed from 1,251 to 2,267 for a same period. This represents a significant rise, with both metrics recording an approximate 80% monthly growth rate.
+* Between 2019 and 2023, the Average Order Value (AOV) generally ranged from $60 to $100, with a consistent uptick in Q4 from 2020 onward. This pattern suggests that customers tend to place higher-value orders during the year-end period, likely influenced by seasonal promotions and holiday shopping
 
-## Product Performance
+## Product category performance
 * 

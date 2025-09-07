@@ -22,6 +22,11 @@ Zyra's database structure as seen below consists of four table namely orders, or
 ### Overview 
 Since its debut in 2019, Zyra has recorded increasing in total sales from $53K in 2019 to $1,286,122 in 2023. This growth was primarily driven by a year-on-year average order volume increase of 129%, while maintaining a stable average order value (AOV) of $86. Sales were largely driven by two popular product category, bottom and tops that contribute about 46% of total revenue. This excellent performance was further supported by the company’s ability to attract 25,812 customers between 2019 and 20233.
 
+<img width="2767" height="1600" alt="ecommerce study-1" src="https://github.com/user-attachments/assets/69c874aa-69a6-408e-ab82-c44d6329d258" />
+
+<img width="882" height="193" alt="image" src="https://github.com/user-attachments/assets/1cd30bb8-c72c-4f75-9b9f-a446e22a77f2" />
+
+
 ## Inside Deep Dive
 
 ### Sales Trends
@@ -52,11 +57,11 @@ Since its debut in 2019, Zyra has recorded increasing in total sales from $53K i
 
 * Marketing Medium
   * Invest further in SEO, Google ad and paid search to improve further our "Search" traffic source.
-  * Zyra should diverisy its traffic source by investing with others social media (tik-tok, X, youtube) or paid influencers especially in tik tok to attact more traffic especially among gen z.
+  * Zyra may diverisy its traffic source by investing with others social media (tik-tok, X, youtube) or paid influencers especially in tik tok to attact more traffic especially among gen z.
   * Provide training for the social media team to enhance their skills in creating more engaging and impactful content across platforms.
 
 * Offer loyalty program
-  * Since the repeat customer rate remains relatively low, Zyra should introduce a loyalty program that offers points for every purchase along with exclusive discounts and rewards to encourage long-term customer retention
+  * Since the customer rentation rate remains relatively low, Zyra may introduce a loyalty program that offers points for every purchase along with exclusive discounts and rewards to encourage long-term customer retention
 
 
 

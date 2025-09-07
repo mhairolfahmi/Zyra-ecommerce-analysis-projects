@@ -12,7 +12,6 @@ The goal is to study key performance metrics across this three core domain:
 
 * Customer Behaviour: A study of customer retention and impact of several traffic sources to attract new customers.
 
-* Returned and cancellation rate: An evaluation of returned rate and cancellation rate from Zyra sales transaction.
 
 ## Executive Summary
 
@@ -33,4 +32,29 @@ Since its debut in 2019, Zyra has recorded increasing in total sales from $53K i
 * Top have consistent become Zyra second best product category in term of sales and order volume, except in 2020 where top have recorded higher order volume of 622 compared to bottom at 613.
 * Despite recording the second-lowest order volume among all categories, Outerwear ranked third in total sales which driven by its significantly higher Average Order Value (AOV), which ranged between $136 and $153.
 * The Intimates & Sleepwear category recorded the third-highest order volume. Along with Bottoms and Tops, these categories collectively contributed around 83% of Zyra’s total orders.
+
+### Customer Behaviour
+
+*  Zyra's customer base has expanded aggressively, growing from 616 in 2019 to 13,698 in 2023 at a 22X increase rate.
+*  Reapted customer have also have rose steadily at 10(1.62%) at 2009 to 1042(7,61%) in 2023 which making a total repated rate of 11.53 for this period of time.
+*  The majority of customer traffic originated from Search which made up about 70% of the total.
+*  Zyra email and facebook marketing only made up about 4-5% and 5-6% of total customer traffic, respectively which indicating limited impact to the customer growth.
+
+## Recommendations
+
+* Maximize Product Offering
+ * Conduct a deep dive about customer perference within top categories(top and bottom) to use this data for marketing and consider offering bundle or sets(eg matching top and bottom) to increase its AOV and sales.
+ * Taregt to improve Outwear sales by increase its variety to introduce more premium and limited edition version to drive urgency and further leverage its high AOV.
+
+* Marketing Medium
+ * Invest further in SEO, Google ad and paid search to improve further our "Search" traffic source.
+ * Zyra should diverisy its traffic source by investing with others social media (tik-tok, X, youtube) or paid influencers especially in tik tok to attact more traffic especially among gen z.
+ * Provide training for the social media team to enhance their skills in creating more engaging and impactful content across platforms.
+
+* Offer loyalty program
+ * Since the repeat customer rate remains relatively low, Zyra should introduce a loyalty program that offers points for every purchase along with exclusive discounts and rewards to encourage long-term customer retention
+
+
+
+
 

@@ -27,7 +27,7 @@ Since its debut in 2019, Zyra has recorded increasing in total sales from $53K i
 *  **2023**: the sales and orders volume shows a strong acceleration especially when it second half of the year. Sales rise from $109,932 in July to $197,131 in december, while order volume climbed from 1,251 to 2,267 for a same period. This represents a significant rise, with both metrics recording an approximate 80% monthly growth rate.
 * Between 2019 and 2023, the Average Order Value (AOV) generally ranged from $60 to $100, with a consistent uptick in Q4 from 2020 onward. This pattern suggests that customers tend to place higher-value orders during the year-end period, likely influenced by seasonal promotions and holiday shopping
 
-## Product category performance
+### Product category performance
 
 * The bottoms category(eg jeans, shorts, skirt) has recorded the highest total sales each consecutive year contributing about range of 24% to 29% of total revenue every year.
 * Top have consistent become Zyra second best product category in term of sales and order volume, except in 2020 where top have recorded higher order volume of 622 compared to bottom at 613.

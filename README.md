@@ -43,16 +43,16 @@ Since its debut in 2019, Zyra has recorded increasing in total sales from $53K i
 ## Recommendations
 
 * Maximize Product Offering
- * Conduct a deep dive about customer perference within top categories(top and bottom) to use this data for marketing and consider offering bundle or sets(eg matching top and bottom) to increase its AOV and sales.
- * Taregt to improve Outwear sales by increase its variety to introduce more premium and limited edition version to drive urgency and further leverage its high AOV.
+  * Conduct a deep dive about customer perference within top categories(top and bottom) to use this data for marketing and consider offering bundle or sets(eg matching top and bottom) to increase its AOV and sales.
+  * Taregt to improve Outwear sales by increase its variety to introduce more premium and limited edition version to drive urgency and further leverage its high AOV.
 
 * Marketing Medium
- * Invest further in SEO, Google ad and paid search to improve further our "Search" traffic source.
- * Zyra should diverisy its traffic source by investing with others social media (tik-tok, X, youtube) or paid influencers especially in tik tok to attact more traffic especially among gen z.
- * Provide training for the social media team to enhance their skills in creating more engaging and impactful content across platforms.
+  * Invest further in SEO, Google ad and paid search to improve further our "Search" traffic source.
+  * Zyra should diverisy its traffic source by investing with others social media (tik-tok, X, youtube) or paid influencers especially in tik tok to attact more traffic especially among gen z.
+  * Provide training for the social media team to enhance their skills in creating more engaging and impactful content across platforms.
 
 * Offer loyalty program
- * Since the repeat customer rate remains relatively low, Zyra should introduce a loyalty program that offers points for every purchase along with exclusive discounts and rewards to encourage long-term customer retention
+  * Since the repeat customer rate remains relatively low, Zyra should introduce a loyalty program that offers points for every purchase along with exclusive discounts and rewards to encourage long-term customer retention
 
 
 

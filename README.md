@@ -12,6 +12,10 @@ The goal is to study key performance metrics across this three core domain:
 
 * Customer Behaviour: A study of customer retention and impact of several traffic sources to attract new customers.
 
+## Data Structure
+Zyra's database structure as seen below consists of four table namely orders, order_item, products and users with a total row count of 125,226 rows
+
+<img width="1414" height="2000" alt="Orders (1)" src="https://github.com/user-attachments/assets/dc1860ef-d883-467a-afe5-29520ecf25cc" />
 
 ## Executive Summary
 

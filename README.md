@@ -43,7 +43,8 @@ Since its debut in 2019, Zyra has recorded increasing in total sales from $53K i
 * Despite recording the second-lowest order volume among all categories, Outerwear ranked third in total sales which driven by its significantly higher Average Order Value (AOV), which ranged between $136 and $153.
 * The Intimates & Sleepwear category recorded the third-highest order volume. Along with Bottoms and Tops, these categories collectively contributed around 83% of Zyra’s total orders.
 
-<img width="2767" height="1600" alt="ecommerce study-3" src="https://github.com/user-attachments/assets/4191d691-ab34-462a-a24b-05b83fabcdb3" />
+<img width="2767" height="1600" alt="ecommerce study (1)-3" src="https://github.com/user-attachments/assets/d2b89be5-ff8f-476c-b3fa-172c106f76cb" />
+
 
 ### Customer Behaviour
 

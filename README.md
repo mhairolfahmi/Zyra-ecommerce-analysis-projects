@@ -45,6 +45,8 @@ Since its debut in 2019, Zyra has recorded increasing in total sales from $53K i
 
 <img width="2767" height="1600" alt="ecommerce study (1)-3" src="https://github.com/user-attachments/assets/d2b89be5-ff8f-476c-b3fa-172c106f76cb" />
 
+<img width="451" height="218" alt="image" src="https://github.com/user-attachments/assets/e7dd18cc-6046-4807-91e9-50382f471ae9" />
+
 
 ### Customer Behaviour
 

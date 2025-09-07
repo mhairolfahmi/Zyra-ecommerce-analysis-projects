@@ -29,7 +29,7 @@ Since its debut in 2019, Zyra has recorded increasing in total sales from $53K i
 
 ### Product category performance
 
-* The bottoms category(eg jeans, shorts, skirt) has recorded the highest total sales each consecutive year contributing about range of 24% to 29% of total revenue every year.
+* The bottoms category has recorded the highest total sales each consecutive year contributing about range of 24% to 29% of total revenue every year.
 * Top have consistent become Zyra second best product category in term of sales and order volume, except in 2020 where top have recorded higher order volume of 622 compared to bottom at 613.
 * Despite recording the second-lowest order volume among all categories, Outerwear ranked third in total sales which driven by its significantly higher Average Order Value (AOV), which ranged between $136 and $153.
 * The Intimates & Sleepwear category recorded the third-highest order volume. Along with Bottoms and Tops, these categories collectively contributed around 83% of Zyra’s total orders.

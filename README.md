@@ -22,11 +22,10 @@ Since its debut in 2019, Zyra has recorded increasing in total sales from $53K i
 ## Inside Deep Dive
 
 ### Sales Trends
-* Total sales and total orders
-  * Zyra's show steady growth from 2019 to 2022 with an average monthly sales growth rate of 13% and an average montly orders growth rate of 14%.
-  * Zyra's sales have shows a consistent spike at Q4 of each year which likely allign with company's end-of-year promotional campaign.
-  * In 2023, Zyra's sales and order volume jump significalty from may at 
-  * The Average Order Value (AOV) fluctuated between $60 and $100 throughout the year, with a noticeable increase in Q4, suggesting that customers tend to place higher-value orders during the year-end period
+
+*  2019-2022: Both total sales and total orders showed steady growth with an average monthly growth rate of 13%.
+*  2023: the sales and orders volume shows a strong acceleration especially when it second half of the year. Sales rise from $109,932 in July to $197,131 in december, while order volume climbed from 1,251 to 2,267 for a same period. This represents a significant rise, with both metrics recording an approximate 80% monthly growth rate.
+* The Average Order Value (AOV) fluctuated between $60 and $100 throughout the year 2019 to 2023, with a noticeable increase in Q4, suggesting that customers tend to place higher-value orders during the year-end period
 
 ## Product Performance
 * 

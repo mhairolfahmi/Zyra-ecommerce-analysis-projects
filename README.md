@@ -38,7 +38,7 @@ Since its debut in 2019, Zyra has recorded increasing in total sales from $53K i
 *  Zyra's customer base has expanded aggressively, growing from 616 in 2019 to 13,698 in 2023 at a 22X increase rate.
 *  Reapted customer have also have rose steadily at 10(1.62%) at 2009 to 1042(7,61%) in 2023 which making a total repated rate of 11.53 for this period of time.
 *  The majority of customer traffic originated from Search which made up about 70% of the total.
-*  Zyra email and facebook marketing only made up about 4-5% and 5-6% of total customer traffic, respectively which indicating limited impact to the customer growth.
+*  Zyra's email and facebook marketing only made up about 4-5% and 5-6% of total customer traffic, respectively which indicating limited impact to the customer growth.
 
 ## Recommendations
 

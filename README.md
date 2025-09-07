@@ -22,10 +22,9 @@ Zyra's database structure as seen below consists of four table namely orders, or
 ### Overview 
 Since its debut in 2019, Zyra has recorded increasing in total sales from $53K in 2019 to $1,286,122 in 2023. This growth was primarily driven by a year-on-year average order volume increase of 129%, while maintaining a stable average order value (AOV) of $86. Sales were largely driven by two popular product category, bottom and tops that contribute about 46% of total revenue. This excellent performance was further supported by the company’s ability to attract 25,812 customers between 2019 and 20233.
 
-<img width="2767" height="1600" alt="ecommerce study-1" src="https://github.com/user-attachments/assets/69c874aa-69a6-408e-ab82-c44d6329d258" />
+<img width="2767" height="1600" alt="ecommerce study-1" src="https://github.com/user-attachments/assets/07b7e59b-060a-4ada-86cb-1a14f85bd83d" />
 
 <img width="882" height="193" alt="image" src="https://github.com/user-attachments/assets/1cd30bb8-c72c-4f75-9b9f-a446e22a77f2" />
-
 
 ## Inside Deep Dive
 
@@ -33,7 +32,9 @@ Since its debut in 2019, Zyra has recorded increasing in total sales from $53K i
 
 *  **2019-2022**: Both total sales and total orders showed steady growth with an average monthly growth rate of 13%. This trends may have been influenced by the shift towards the new digital norm and excellent performance of marketing team in attracting  traffic.
 *  **2023**: the sales and orders volume shows a strong acceleration especially when it second half of the year. Sales rise from $109,932 in July to $197,131 in december, while order volume climbed from 1,251 to 2,267 for a same period. This represents a significant rise, with both metrics recording an approximate 80% monthly growth rate.
-* Between 2019 and 2023, the Average Order Value (AOV) generally ranged from $60 to $100, with a consistent uptick in Q4 from 2020 onward. This pattern suggests that customers tend to place higher-value orders during the year-end period, likely influenced by seasonal promotions and holiday shopping
+* Between 2019 and 2023, the Average Order Value (AOV) generally ranged from $60 to $100, with a consistent uptick in Q4 from 2020 onward. This pattern suggests that customers tend to place higher-value orders during the year-end period, likely influenced by seasonal promotions and holiday shopping.
+
+<img width="2767" height="1600" alt="ecommerce study-2" src="https://github.com/user-attachments/assets/bc1f50bb-b053-4fea-b648-edb801ad1310" />
 
 ### Product category performance
 
@@ -42,12 +43,16 @@ Since its debut in 2019, Zyra has recorded increasing in total sales from $53K i
 * Despite recording the second-lowest order volume among all categories, Outerwear ranked third in total sales which driven by its significantly higher Average Order Value (AOV), which ranged between $136 and $153.
 * The Intimates & Sleepwear category recorded the third-highest order volume. Along with Bottoms and Tops, these categories collectively contributed around 83% of Zyra’s total orders.
 
+<img width="2767" height="1600" alt="ecommerce study-3" src="https://github.com/user-attachments/assets/4191d691-ab34-462a-a24b-05b83fabcdb3" />
+
 ### Customer Behaviour
 
 *  Zyra's customer base has expanded aggressively, growing from 616 in 2019 to 13,698 in 2023 at a 22X increase rate.
 *  Reapted customer have also have rose steadily at 10(1.62%) at 2009 to 1042(7,61%) in 2023 which making a total repated rate of 11.53 for this period of time.
 *  The majority of customer traffic originated from Search which made up about 70% of the total.
 *  Zyra's email and facebook marketing only made up about 4-5% and 5-6% of total customer traffic, respectively which indicating limited impact to the customer growth.
+
+<img width="2767" height="1600" alt="ecommerce study-4" src="https://github.com/user-attachments/assets/a84dfd58-0fa2-47bf-9e04-a5c9a0673dbe" />
 
 ## Recommendations
 

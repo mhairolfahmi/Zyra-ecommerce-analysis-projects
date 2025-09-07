@@ -57,7 +57,8 @@ Total sales and total orders by category (2019-2023)
 *  The majority of customer traffic originated from Search which made up about 70% of the total.
 *  Zyra's email and facebook marketing only made up about 4-5% and 5-6% of total customer traffic, respectively which indicating limited impact to the customer growth.
 
-![Uploading ecommerce study (2)-4.png…]()
+<img width="2767" height="1600" alt="ecommerce study (2)-4" src="https://github.com/user-attachments/assets/7ac36df8-f8fc-4009-a2e8-ac1097eb025a" />
+
 
 
 ## Recommendations

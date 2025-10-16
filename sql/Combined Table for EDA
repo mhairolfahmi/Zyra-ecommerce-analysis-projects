@@ -1,0 +1,43 @@
+SELECT 
+    strftime('%Y-%m', o.created_at) AS month,
+    o.order_id,
+    o.status AS order_status,
+    CASE
+        WHEN p.category IN ('Tops & Tees', 'Fashion Hoodies & Sweatshirts', 'Sweaters', 'Blazers & Jackets') THEN 'Tops'
+        WHEN p.category IN ('Pants', 'Pants & Capris', 'Shorts', 'Jeans', 'Leggings', 'Skirts') THEN 'Bottoms'
+        WHEN p.category IN ('Dresses', 'Jumpsuits & Rompers', 'Suits', 'Suits & Sport Coats', 'Clothing Sets') THEN 'Dresses & One-Piece'
+        WHEN p.category IN ('Intimates', 'Underwear', 'Sleep & Lounge', 'Socks & Hosiery') THEN 'Intimates & Sleepwear'
+        WHEN p.category = 'Outerwear & Coats' THEN 'Outerwear'
+        WHEN p.category = 'Active' THEN 'Activewear'
+        WHEN p.category = 'Swim' THEN 'Swimwear'
+        WHEN p.category IN ('Plus', 'Maternity') THEN 'Fit-Specific'
+        WHEN p.category IN ('Accessories', 'Socks') THEN 'Accessories'
+        ELSE 'Other'
+    END AS big_category,
+    p.category AS sub_category,
+    p.brand,
+    p.department,
+    dc.name AS distribution_center,
+    COUNT(oi.id) AS total_items,
+    ROUND(SUM(p.retail_price), 2) AS total_sales,
+    ROUND(SUM(p.cost), 2) AS total_cost
+FROM orders o
+LEFT JOIN order_items oi 
+    ON o.order_id = oi.order_id
+LEFT JOIN products p 
+    ON oi.product_id = p.id
+LEFT JOIN distribution_centers dc
+    ON p.distribution_center_id = dc.id
+GROUP BY 
+    strftime('%Y-%m', o.created_at),
+    o.order_id,
+    o.status,
+    big_category,
+    p.category,
+    p.brand,
+    p.department,
+    dc.name
+ORDER BY 
+    month,
+    o.order_id
+

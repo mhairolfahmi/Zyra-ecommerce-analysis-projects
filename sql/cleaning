@@ -1,4 +1,4 @@
---ORDER TABLE
+--cleaning for ORDER TABLE
 
 -- Check duplicate order_id
 SELECT order_id, COUNT(*) 
@@ -61,3 +61,172 @@ SELECT *
 FROM orders
 WHERE num_of_item <= 0;
 -- no error
+
+-- cleaning for order_item
+
+---- check for null VALUES
+SELECT id, order_id, product_id,inventory_item_id
+FROM order_items
+WHERE id IS NULL AND order_id IS NULL AND product_id IS NULL AND inventory_item_id IS NULL;
+
+-- no NULL
+
+--check for duplicate id
+SELECT id
+FROM order_items
+GROUP BY id
+HAVING COUNT(*)>1;
+
+-- 0 duplicate
+
+-- check format in status 
+SELECT DISTINCT status
+FROM order_items;
+
+--Contain 5 dustinct cancelled, complete, shipped, processing and returned 
+
+-- check for null value at created_at, returned_at and shipped_at
+SELECT 
+    SUM(created_at IS NULL) AS missing_created,
+    SUM(returned_at IS NULL) AS missing_returned,
+    SUM(shipped_at IS NULL) AS missing_shipped
+FROM order_items;
+
+-- there is 163527 null in returned and 63478 in shipped, it might refer to cancelled, or processing status 
+
+-- check if there is column where have status delivered or returned at missing at delievered or returned_at is null
+SELECT *
+FROM order_items
+WHERE status = 'delivered'
+  AND delivered_at IS NULL;
+  
+
+SELECT *
+FROM order_items
+WHERE status = 'returned'
+
+--CLEANING FOR PRODUCTS
+
+-- check for null VALUES in all COLUMN
+SELECT 
+    SUM(id IS NULL) AS missing_id,
+    SUM(cost IS NULL) AS missing_cost,
+    SUM(category IS NULL OR TRIM(category) = '') AS missing_category,
+    SUM(name IS NULL OR TRIM(name) = '') AS missing_name,
+    SUM(brand IS NULL OR TRIM(brand) = '') AS missing_brand,
+    SUM(retail_price IS NULL) AS missing_retail_price,
+    SUM(department IS NULL OR TRIM(department) = '') AS missing_department,
+    SUM(sku IS NULL OR TRIM(sku) = '') AS missing_sku,
+    SUM(distribution_center_id IS NULL) AS missing_distribution_center_id
+FROM products;
+
+SELECT *
+FROM products
+WHERE brand IS NULL;
+
+SELECT *
+FROM products
+WHERE name IS 'Wendy Glez Rose Cami Black';
+
+
+-- the is 24 missing in brand column out of 29120
+-- Some products shared the same name but belonged to different categories and had different SKUs.
+--This suggests they may represent different product variations or different suppliers/brands, despite having the same product name.
+--For this project, I chose to retain the missing values as NULL as it small and minimal impact.
+
+--check for duplicate id and sku
+SELECT id, COUNT(*) AS cnt
+FROM products
+GROUP BY id
+HAVING COUNT(*) > 1;
+
+SELECT sku, COUNT(*) AS cnt
+FROM products
+GROUP BY sku
+HAVING COUNT(*) > 1
+ORDER BY cnt DESC;
+
+-- no duplicate
+
+-- CLEANING FOR USER TABLE
+
+-- check for null value
+SELECT 
+    SUM(id IS NULL) AS missing_id,
+    SUM(first_name IS NULL OR TRIM(first_name) = '') AS missing_first_name,
+    SUM(last_name IS NULL OR TRIM(last_name) = '') AS missing_last_name,
+    SUM(email IS NULL OR TRIM(email) = '') AS missing_email,
+    SUM(age IS NULL) AS missing_age,
+    SUM(gender IS NULL OR TRIM(gender) = '') AS missing_gender,
+    SUM(state IS NULL OR TRIM(state) = '') AS missing_state,
+    SUM(street_address IS NULL OR TRIM(street_address) = '') AS missing_street_address,
+    SUM(postal_code IS NULL OR TRIM(postal_code) = '') AS missing_postal_code,
+    SUM(city IS NULL OR TRIM(city) = '') AS missing_city,
+    SUM(country IS NULL OR TRIM(country) = '') AS missing_country,
+    SUM(latitude IS NULL) AS missing_latitude,
+    SUM(longitude IS NULL) AS missing_longitude,
+    SUM(traffic_source IS NULL OR TRIM(traffic_source) = '') AS missing_traffic_source,
+    SUM(created_at IS NULL) AS missing_created_at
+FROM users;
+
+-- no error
+
+--check for duplicate id
+
+SELECT ID
+FROM users
+GROUP  BY id
+HAVING COUNT(id)>1;
+
+-- no duplicate
+
+-- check format
+
+SELECT DISTINCT state
+FROM users;
+
+SELECT DISTINCT country
+FROM users;
+
+SELECT DISTINCT traffic_source
+FROM users;
+
+-- All okay
+
+--CLEANING FOR INVENTORY TABLE
+
+-- check for null value
+SELECT 
+    SUM(id IS NULL) AS missing_id,
+    SUM(product_id IS NULL) AS missing_product_id,
+    SUM(created_at IS NULL) AS missing_created_at,
+    SUM(sold_at IS NULL) AS missing_sold_at,
+    SUM(cost IS NULL) AS missing_cost,
+    SUM(product_category IS NULL OR TRIM(product_category) = '') AS missing_product_category,
+    SUM(product_name IS NULL OR TRIM(product_name) = '') AS missing_product_name,
+    SUM(product_brand IS NULL OR TRIM(product_brand) = '') AS missing_product_brand,
+    SUM(product_retail_price IS NULL) AS missing_product_retail_price,
+    SUM(product_department IS NULL OR TRIM(product_department) = '') AS missing_product_department,
+    SUM(product_sku IS NULL OR TRIM(product_sku) = '') AS missing_product_sku,
+    SUM(product_distribution_center_id IS NULL) AS missing_product_distribution_center_id
+FROM inventory_items;
+
+
+-- there is 308946 null at sold_at which might indicating the item have not sold yet
+-- 29 missing in product name and 401 in product brand, 
+
+--check for duplicate id
+
+SELECT id
+FROM inventory_items
+GROUP BY id
+HAVING count(*)>1;
+
+-- no duplicate.
+
+
+
+
+
+
+

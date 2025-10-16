@@ -1,0 +1,516 @@
+<?xml version="1.0" encoding="UTF-8"?><sqlb_project><db path="looker ecommerce.db" readonly="0" foreign_keys="1" case_sensitive_like="0" temp_store="0" wal_autocheckpoint="1000" synchronous="2"/><attached/><window><main_tabs open="structure browser pragmas query" current="3"/></window><tab_structure><column_width id="0" width="300"/><column_width id="1" width="0"/><column_width id="2" width="100"/><column_width id="3" width="1847"/><column_width id="4" width="0"/><expanded_item id="0" parent="1"/><expanded_item id="1" parent="1"/><expanded_item id="2" parent="1"/><expanded_item id="3" parent="1"/></tab_structure><tab_browse><table title="orders" custom_title="0" dock_id="1" table="4,6:mainorders"/><dock_state state="000000ff00000000fd0000000100000002000005f4000002aefc0100000001fb000000160064006f0063006b00420072006f00770073006500310100000000000005f40000015c00ffffff000005f40000000000000004000000040000000800000008fc00000000"/><default_encoding codec=""/><browse_table_settings><table schema="main" name="distribution_centers" show_row_id="0" encoding="" plot_x_axis="" unlock_view_pk="_rowid_" freeze_columns="0"><sort/><column_widths><column index="1" value="29"/><column index="2" value="300"/><column index="3" value="62"/><column index="4" value="70"/></column_widths><filter_values/><conditional_formats/><row_id_formats/><display_formats/><hidden_columns/><plot_y_axes/><global_filter/></table><table schema="main" name="events" show_row_id="0" encoding="" plot_x_axis="" unlock_view_pk="_rowid_" freeze_columns="0"><sort/><column_widths><column index="1" value="62"/><column index="2" value="50"/><column index="3" value="110"/><column index="4" value="288"/><column index="5" value="202"/><column index="6" value="124"/><column index="7" value="300"/><column index="8" value="257"/><column index="9" value="78"/><column index="10" value="62"/><column index="11" value="85"/><column index="12" value="62"/><column index="13" value="71"/></column_widths><filter_values/><conditional_formats/><row_id_formats/><display_formats/><hidden_columns/><plot_y_axes/><global_filter/></table><table schema="main" name="inventory_items" show_row_id="0" encoding="" plot_x_axis="" unlock_view_pk="_rowid_" freeze_columns="0"><sort/><column_widths><column index="1" value="54"/><column index="2" value="69"/><column index="3" value="257"/><column index="4" value="257"/><column index="5" value="132"/><column index="6" value="107"/><column index="7" value="300"/><column index="8" value="156"/><column index="9" value="132"/><column index="10" value="123"/><column index="11" value="257"/><column index="12" value="182"/></column_widths><filter_values/><conditional_formats/><row_id_formats/><display_formats/><hidden_columns/><plot_y_axes/><global_filter/></table><table schema="main" name="order_items" show_row_id="0" encoding="" plot_x_axis="" unlock_view_pk="_rowid_" freeze_columns="0"><sort/><column_widths><column index="1" value="54"/><column index="2" value="55"/><column index="3" value="50"/><column index="4" value="69"/><column index="5" value="110"/><column index="6" value="85"/><column index="7" value="257"/><column index="8" value="257"/><column index="9" value="257"/><column index="10" value="257"/><column index="11" value="148"/></column_widths><filter_values/><conditional_formats/><row_id_formats/><display_formats/><hidden_columns/><plot_y_axes/><global_filter/></table><table schema="main" name="orders" show_row_id="0" encoding="" plot_x_axis="" unlock_view_pk="_rowid_" freeze_columns="0"><sort/><column_widths><column index="1" value="55"/><column index="2" value="50"/><column index="3" value="78"/><column index="4" value="47"/><column index="5" value="257"/><column index="6" value="75"/><column index="7" value="70"/><column index="8" value="78"/><column index="9" value="83"/></column_widths><filter_values/><conditional_formats/><row_id_formats/><display_formats/><hidden_columns/><plot_y_axes/><global_filter/></table><table schema="main" name="products" show_row_id="0" encoding="" plot_x_axis="" unlock_view_pk="_rowid_" freeze_columns="0"><sort/><column_widths><column index="1" value="46"/><column index="2" value="132"/><column index="3" value="234"/><column index="4" value="300"/><column index="5" value="54"/><column index="6" value="132"/><column index="7" value="73"/><column index="8" value="257"/><column index="9" value="132"/></column_widths><filter_values/><conditional_formats/><row_id_formats/><display_formats/><hidden_columns/><plot_y_axes/><global_filter/></table><table schema="main" name="users" show_row_id="0" encoding="" plot_x_axis="" unlock_view_pk="_rowid_" freeze_columns="0"><sort/><column_widths><column index="1" value="46"/><column index="2" value="93"/><column index="3" value="93"/><column index="4" value="249"/><column index="5" value="29"/><column index="6" value="47"/><column index="7" value="70"/><column index="8" value="280"/><column index="9" value="78"/><column index="10" value="179"/><column index="11" value="109"/><column index="12" value="117"/><column index="13" value="101"/><column index="14" value="85"/><column index="15" value="257"/></column_widths><filter_values/><conditional_formats/><row_id_formats/><display_formats/><hidden_columns/><plot_y_axes/><global_filter/></table></browse_table_settings></tab_browse><tab_sql><sql name="Data Cleaning/ order table">--ORDER TABLE
+
+-- Check duplicate order_id
+SELECT order_id, COUNT(*) 
+FROM orders 
+GROUP BY order_id 
+HAVING COUNT(*) &gt; 1;
+
+-- no duplicate
+
+-- check for date format
+SELECT created_at, returned_at, delivered_at
+FROM orders
+WHERE returned_at IS NOT NULL AND delivered_at IS NOT NULL
+LIMIT 10;
+
+-- ALL format is same
+
+--CHECK logical date
+
+-- check if there is order shipped before order bean created.
+SELECT *
+FROM orders
+WHERE datetime(shipped_at) &lt; datetime(created_at);
+-- no error
+
+--check if there is delivery before shipped
+SELECT *
+FROM orders
+WHERE datetime(delivered_at) &lt; datetime(shipped_at);
+-- no error
+
+-- check if return date happen before delivery
+SELECT *
+FROM orders
+WHERE returned_at IS NOT NULL
+  AND datetime(returned_at) &lt; datetime(delivered_at);
+-- no error
+
+--check null VALUES
+SELECT 
+    SUM(created_at IS NULL) AS missing_created,
+    SUM(returned_at IS NULL) AS missing_returned,
+    SUM(shipped_at IS NULL) AS missing_shipped,
+    SUM(delivered_at IS NULL) AS missing_delivered,
+    SUM(gender IS NULL OR TRIM(gender) = '') AS missing_gender,
+    SUM(num_of_item IS NULL) AS missing_num_of_item
+FROM orders;
+
+-- there is missing value at returned_at, shipped_at, and delivered_at which might indicate cancelled transaction, hence it let is as it is
+
+--check for standardized value for status gender
+
+SELECT DISTINCT status FROM orders;
+-- only contain Cancelled, Complete, Processing, Returned, Shipped
+SELECT DISTINCT gender FROM orders;
+--only contain F and M
+
+-- Check if there is 0 value in num_of_item
+SELECT *
+FROM orders
+WHERE num_of_item &lt;= 0;
+-- no error
+
+</sql><sql name="Data Cleaning* / order_itm">-- check for null VALUES
+SELECT id, order_id, product_id,inventory_item_id
+FROM order_items
+WHERE id IS NULL AND order_id IS NULL AND product_id IS NULL AND inventory_item_id IS NULL;
+
+-- no NULL
+
+--check for duplicate id
+SELECT id
+FROM order_items
+GROUP BY id
+HAVING COUNT(*)&gt;1;
+
+-- 0 duplicate
+
+-- check format in status 
+SELECT DISTINCT status
+FROM order_items;
+
+--Contain 5 dustinct cancelled, complete, shipped, processing and returned 
+
+-- check for null value at created_at, returned_at and shipped_at
+SELECT 
+    SUM(created_at IS NULL) AS missing_created,
+    SUM(returned_at IS NULL) AS missing_returned,
+    SUM(shipped_at IS NULL) AS missing_shipped
+FROM order_items;
+
+-- there is 163527 null in returned and 63478 in shipped, it might refer to cancelled, or processing status 
+
+-- check if there is column where have status delivered or returned at missing at delievered or returned_at is null
+SELECT *
+FROM order_items
+WHERE status = 'delivered'
+  AND delivered_at IS NULL;
+  
+
+SELECT *
+FROM order_items
+WHERE status = 'returned'
+  AND returned_at IS NULL;
+  
+-- no result, no error</sql><sql name="Data Cleaning Products">-- check for null VALUES in all COLUMN
+SELECT 
+    SUM(id IS NULL) AS missing_id,
+    SUM(cost IS NULL) AS missing_cost,
+    SUM(category IS NULL OR TRIM(category) = '') AS missing_category,
+    SUM(name IS NULL OR TRIM(name) = '') AS missing_name,
+    SUM(brand IS NULL OR TRIM(brand) = '') AS missing_brand,
+    SUM(retail_price IS NULL) AS missing_retail_price,
+    SUM(department IS NULL OR TRIM(department) = '') AS missing_department,
+    SUM(sku IS NULL OR TRIM(sku) = '') AS missing_sku,
+    SUM(distribution_center_id IS NULL) AS missing_distribution_center_id
+FROM products;
+
+SELECT *
+FROM products
+WHERE brand IS NULL;
+
+SELECT *
+FROM products
+WHERE name IS 'Wendy Glez Rose Cami Black';
+
+
+-- the is 24 missing in brand column out of 29120
+-- Some products shared the same name but belonged to different categories and had different SKUs.
+--This suggests they may represent different product variations or different suppliers/brands, despite having the same product name.
+--For this project, I chose to retain the missing values as NULL as it small and minimal impact.
+
+--check for duplicate id and sku
+SELECT id, COUNT(*) AS cnt
+FROM products
+GROUP BY id
+HAVING COUNT(*) &gt; 1;
+
+SELECT sku, COUNT(*) AS cnt
+FROM products
+GROUP BY sku
+HAVING COUNT(*) &gt; 1
+ORDER BY cnt DESC;
+
+-- no duplicate
+
+
+</sql><sql name="Data Cleaning events">-- check for null value 
+SELECT 
+    SUM(id IS NULL) AS missing_id,
+    SUM(user_id IS NULL) AS missing_user_id,
+    SUM(sequence_number IS NULL) AS missing_sequence_number,
+    SUM(session_id IS NULL) AS missing_session_id,
+    SUM(created_at IS NULL) AS missing_created_at,
+    SUM(ip_address IS NULL OR TRIM(ip_address) = '') AS missing_ip_address,
+    SUM(city IS NULL OR TRIM(city) = '') AS missing_city,
+    SUM(state IS NULL OR TRIM(state) = '') AS missing_state,
+    SUM(postal_code IS NULL OR TRIM(postal_code) = '') AS missing_postal_code,
+    SUM(browser IS NULL OR TRIM(browser) = '') AS missing_browser,
+    SUM(traffic_source IS NULL OR TRIM(traffic_source) = '') AS missing_traffic_source,
+    SUM(uri IS NULL OR TRIM(uri) = '') AS missing_uri,
+    SUM(event_type IS NULL OR TRIM(event_type) = '') AS missing_event_type
+FROM events;
+
+
+-- there is is 1,125,671 null in user_id which might indicating the anonymous guest users that enter out platform, thus it best to let is as 0.
+
+-- check for duplicate id
+SELECT id
+FROM events
+GROUP BY id
+HAVING COUNT(id) &gt;1;
+
+-- no duplicate
+
+-- check format
+SELECT DISTINCT state
+FROM events;
+
+SELECT DISTINCT browser
+FROM events;
+
+SELECT DISTINCT traffic_source
+FROM events;
+
+SELECT DISTINCT event_type
+FROM events;
+
+-- all good</sql><sql name="Data Cleaning user ">-- check for null value
+SELECT 
+    SUM(id IS NULL) AS missing_id,
+    SUM(first_name IS NULL OR TRIM(first_name) = '') AS missing_first_name,
+    SUM(last_name IS NULL OR TRIM(last_name) = '') AS missing_last_name,
+    SUM(email IS NULL OR TRIM(email) = '') AS missing_email,
+    SUM(age IS NULL) AS missing_age,
+    SUM(gender IS NULL OR TRIM(gender) = '') AS missing_gender,
+    SUM(state IS NULL OR TRIM(state) = '') AS missing_state,
+    SUM(street_address IS NULL OR TRIM(street_address) = '') AS missing_street_address,
+    SUM(postal_code IS NULL OR TRIM(postal_code) = '') AS missing_postal_code,
+    SUM(city IS NULL OR TRIM(city) = '') AS missing_city,
+    SUM(country IS NULL OR TRIM(country) = '') AS missing_country,
+    SUM(latitude IS NULL) AS missing_latitude,
+    SUM(longitude IS NULL) AS missing_longitude,
+    SUM(traffic_source IS NULL OR TRIM(traffic_source) = '') AS missing_traffic_source,
+    SUM(created_at IS NULL) AS missing_created_at
+FROM users;
+
+-- no error
+
+--check for duplicate id
+
+SELECT ID
+FROM users
+GROUP  BY id
+HAVING COUNT(id)&gt;1;
+
+-- no duplicate
+
+-- check format
+
+SELECT DISTINCT state
+FROM users;
+
+SELECT DISTINCT country
+FROM users;
+
+SELECT DISTINCT traffic_source
+FROM users;
+
+-- All okay</sql><sql name="Data Cleaning for inventory">-- check for null value
+SELECT 
+    SUM(id IS NULL) AS missing_id,
+    SUM(product_id IS NULL) AS missing_product_id,
+    SUM(created_at IS NULL) AS missing_created_at,
+    SUM(sold_at IS NULL) AS missing_sold_at,
+    SUM(cost IS NULL) AS missing_cost,
+    SUM(product_category IS NULL OR TRIM(product_category) = '') AS missing_product_category,
+    SUM(product_name IS NULL OR TRIM(product_name) = '') AS missing_product_name,
+    SUM(product_brand IS NULL OR TRIM(product_brand) = '') AS missing_product_brand,
+    SUM(product_retail_price IS NULL) AS missing_product_retail_price,
+    SUM(product_department IS NULL OR TRIM(product_department) = '') AS missing_product_department,
+    SUM(product_sku IS NULL OR TRIM(product_sku) = '') AS missing_product_sku,
+    SUM(product_distribution_center_id IS NULL) AS missing_product_distribution_center_id
+FROM inventory_items;
+
+
+-- there is 308946 null at sold_at which might indicating the item have not sold yet
+-- 29 missing in product name and 401 in product brand, 
+
+--check for duplicate id
+
+SELECT id
+FROM inventory_items
+GROUP BY id
+HAVING count(*)&gt;1;
+
+-- no duplicate.</sql><sql name="SQL 13">SELECT 
+    strftime('%Y-%m', o.created_at) AS month,
+    o.order_id,
+    o.status AS order_status,
+    CASE
+        WHEN p.category IN ('Tops &amp; Tees', 'Fashion Hoodies &amp; Sweatshirts', 'Sweaters', 'Blazers &amp; Jackets') THEN 'Tops'
+        WHEN p.category IN ('Pants', 'Pants &amp; Capris', 'Shorts', 'Jeans', 'Leggings', 'Skirts') THEN 'Bottoms'
+        WHEN p.category IN ('Dresses', 'Jumpsuits &amp; Rompers', 'Suits', 'Suits &amp; Sport Coats', 'Clothing Sets') THEN 'Dresses &amp; One-Piece'
+        WHEN p.category IN ('Intimates', 'Underwear', 'Sleep &amp; Lounge', 'Socks &amp; Hosiery') THEN 'Intimates &amp; Sleepwear'
+        WHEN p.category = 'Outerwear &amp; Coats' THEN 'Outerwear'
+        WHEN p.category = 'Active' THEN 'Activewear'
+        WHEN p.category = 'Swim' THEN 'Swimwear'
+        WHEN p.category IN ('Plus', 'Maternity') THEN 'Fit-Specific'
+        WHEN p.category IN ('Accessories', 'Socks') THEN 'Accessories'
+        ELSE 'Other'
+    END AS big_category,
+    p.category AS sub_category,
+    p.brand,
+    p.department,
+    dc.name AS distribution_center,
+    COUNT(oi.id) AS total_items,
+    ROUND(SUM(p.retail_price), 2) AS total_sales,
+    ROUND(SUM(p.cost), 2) AS total_cost
+FROM orders o
+LEFT JOIN order_items oi 
+    ON o.order_id = oi.order_id
+LEFT JOIN products p 
+    ON oi.product_id = p.id
+LEFT JOIN distribution_centers dc
+    ON p.distribution_center_id = dc.id
+GROUP BY 
+    strftime('%Y-%m', o.created_at),
+    o.order_id,
+    o.status,
+    big_category,
+    p.category,
+    p.brand,
+    p.department,
+    dc.name
+ORDER BY 
+    month,
+    o.order_id
+
+</sql><sql name="processing time">-- Average Order Processing time
+SELECT 
+ROUND(AVG(JULIANDAY(shipped_at)-JULIANDAY(created_at))*24,0) AS avg_processing_hours
+FROM orders
+WHERE shipped_at IS NOT NULL;
+
+-- total average processing hours is 36 hours which is about more than 1 day
+
+--Average Order Processing Time per category
+SELECT CASE
+        WHEN p.category IN ('Tops &amp; Tees', 'Fashion Hoodies &amp; Sweatshirts', 'Sweaters', 'Blazers &amp; Jackets') THEN 'Tops'
+        WHEN p.category IN ('Pants', 'Pants &amp; Capris', 'Shorts', 'Jeans', 'Leggings', 'Skirts') THEN 'Bottoms'
+        WHEN p.category IN ('Dresses', 'Jumpsuits &amp; Rompers', 'Suits', 'Suits &amp; Sport Coats', 'Clothing Sets') THEN 'Dresses &amp; One-Piece'
+        WHEN p.category IN ('Intimates', 'Underwear', 'Sleep &amp; Lounge', 'Socks &amp; Hosiery') THEN 'Intimates &amp; Sleepwear'
+        WHEN p.category = 'Outerwear &amp; Coats' THEN 'Outerwear'
+        WHEN p.category = 'Active' THEN 'Activewear'
+        WHEN p.category = 'Swim' THEN 'Swimwear'
+        WHEN p.category IN ('Plus', 'Maternity') THEN 'Fit-Specific'
+        WHEN p.category IN ('Accessories', 'Socks') THEN 'Accessories'
+        ELSE 'Other'
+		END as category_group,
+ROUND(AVG(JULIANDAY(o.shipped_at)-JULIANDAY(o.created_at))*24,0) AS avg_processing_hours
+FROM orders AS o
+JOIN order_items AS oi
+ON o.order_id = oi.order_id
+JOIN products AS p
+ON p.id = oi.product_id
+WHERE o.shipped_at IS NOT NULL
+GROUP BY category_group;
+
+-- EACH category have 36 hours of processing time
+
+--max processing time recorded
+SELECT 
+strftime('%Y-%m', created_at) AS month,
+ROUND(AVG(JULIANDAY(shipped_at)-JULIANDAY(created_at))*24,0) AS avg_processing_hours
+FROM orders
+WHERE shipped_at IS NOT NULL
+GROUP BY month;
+
+-- monthly trends is mostly in average of 36 avg processing time
+-- max avg processing time recorded is in feb 2019 at 40 hours
+
+
+
+
+</sql><sql name="delivery time*">-- average delivery days
+SELECT 
+ROUND(AVG(JULIANDAY(delivered_at) - JULIANDAY(created_at)),0) AS avg_delivery_days
+FROM orders
+WHERE delivered_at IS NOT NULL;
+
+--Average of 4 days delivery time
+
+-- average delivery days by month
+SELECT 
+strftime('%Y-%m', created_at) AS month,
+ROUND(AVG(JULIANDAY(delivered_at) - JULIANDAY(created_at)),0) AS avg_delivery_days
+FROM orders
+WHERE delivered_at IS NOT NULL
+GROUP BY month;
+
+-- all month have avg delivery days of 4 days
+
+
+-- average delivery days by category
+SELECT CASE
+        WHEN p.category IN ('Tops &amp; Tees', 'Fashion Hoodies &amp; Sweatshirts', 'Sweaters', 'Blazers &amp; Jackets') THEN 'Tops'
+        WHEN p.category IN ('Pants', 'Pants &amp; Capris', 'Shorts', 'Jeans', 'Leggings', 'Skirts') THEN 'Bottoms'
+        WHEN p.category IN ('Dresses', 'Jumpsuits &amp; Rompers', 'Suits', 'Suits &amp; Sport Coats', 'Clothing Sets') THEN 'Dresses &amp; One-Piece'
+        WHEN p.category IN ('Intimates', 'Underwear', 'Sleep &amp; Lounge', 'Socks &amp; Hosiery') THEN 'Intimates &amp; Sleepwear'
+        WHEN p.category = 'Outerwear &amp; Coats' THEN 'Outerwear'
+        WHEN p.category = 'Active' THEN 'Activewear'
+        WHEN p.category = 'Swim' THEN 'Swimwear'
+        WHEN p.category IN ('Plus', 'Maternity') THEN 'Fit-Specific'
+        WHEN p.category IN ('Accessories', 'Socks') THEN 'Accessories'
+        ELSE 'Other'
+		END as category_group,
+ROUND(AVG(JULIANDAY(o.delivered_at) - JULIANDAY(o.created_at)),0) AS avg_delivery_days
+FROM orders AS o
+JOIN order_items AS oi
+ON o.order_id = oi.order_id
+JOIN products AS p
+ON p.id = oi.product_id
+WHERE o.delivered_at IS NOT NULL
+GROUP BY category_group;
+
+-- all products have avergae delivered days of 4 days
+
+--top 10 records wih highest delivery days
+SELECT
+O.created_at,
+CASE
+        WHEN p.category IN ('Tops &amp; Tees', 'Fashion Hoodies &amp; Sweatshirts', 'Sweaters', 'Blazers &amp; Jackets') THEN 'Tops'
+        WHEN p.category IN ('Pants', 'Pants &amp; Capris', 'Shorts', 'Jeans', 'Leggings', 'Skirts') THEN 'Bottoms'
+        WHEN p.category IN ('Dresses', 'Jumpsuits &amp; Rompers', 'Suits', 'Suits &amp; Sport Coats', 'Clothing Sets') THEN 'Dresses &amp; One-Piece'
+        WHEN p.category IN ('Intimates', 'Underwear', 'Sleep &amp; Lounge', 'Socks &amp; Hosiery') THEN 'Intimates &amp; Sleepwear'
+        WHEN p.category = 'Outerwear &amp; Coats' THEN 'Outerwear'
+        WHEN p.category = 'Active' THEN 'Activewear'
+        WHEN p.category = 'Swim' THEN 'Swimwear'
+        WHEN p.category IN ('Plus', 'Maternity') THEN 'Fit-Specific'
+        WHEN p.category IN ('Accessories', 'Socks') THEN 'Accessories'
+        ELSE 'Other'
+		END as category_group,
+ROUND((JULIANDAY(o.delivered_at) - JULIANDAY(o.created_at)),0) AS delivery_days,
+num_of_item
+FROM orders AS o
+JOIN order_items AS oi
+ON o.order_id = oi.order_id
+JOIN products AS p
+ON p.id = oi.product_id
+WHERE o.delivered_at IS NOT NULL
+GROUP BY category_group
+ORDER BY delivery_days DESC
+LIMIT 10;
+
+-- THE MOST delivery days taken on log is at 6 days on 14 april 2023
+
+--avg delivery time by distribution centre
+SELECT d.name AS distribution_centers_name,
+ROUND(AVG(JULIANDAY(o.delivered_at) - JULIANDAY(o.created_at)),0) AS avg_delivery_days
+FROM orders AS o
+JOIN order_items AS oi
+ON o.order_id = oi.order_id
+JOIN products AS p
+ON oi.product_id = p.id
+JOIN distribution_centers AS d
+ON d.id = p.distribution_center_id
+WHERE o.delivered_at IS NOT NULL
+GROUP BY distribution_centers_name;
+
+--all distribution have same average delivery days
+</sql><sql name="Yealy growth customer">WITH yearly_orders AS (
+    SELECT 
+        strftime('%Y', created_at) AS year,
+        user_id,
+        COUNT(order_id) AS orders_per_user
+    FROM orders
+    GROUP BY strftime('%Y', created_at), user_id
+),
+yearly_summary AS (
+    SELECT 
+        year,
+        COUNT(DISTINCT user_id) AS unique_customer,
+        COUNT(CASE WHEN orders_per_user &gt; 1 THEN 1 END) AS repeated_customer
+    FROM yearly_orders
+    GROUP BY year
+)
+SELECT 
+    year,
+    unique_customer,
+    repeated_customer,
+    ROUND(1.0 * repeated_customer / unique_customer, 2) AS repeated_rate
+FROM yearly_summary
+ORDER BY year;
+
+</sql><sql name="Montlhy customer growth">WITH monthly_orders AS (
+    SELECT 
+        strftime('%Y-%m', created_at) AS month,
+        user_id,
+        COUNT(order_id) AS orders_per_user
+    FROM orders
+    GROUP BY strftime('%Y-%m', created_at), user_id
+),
+monthly_summary AS (
+    SELECT 
+        month,
+        COUNT(DISTINCT user_id) AS unique_customer,
+        COUNT(CASE WHEN orders_per_user &gt; 1 THEN 1 END) AS repeated_customer
+    FROM monthly_orders
+    GROUP BY month
+)
+SELECT 
+    month,
+    unique_customer,
+    repeated_customer,
+    ROUND(1.0 * repeated_customer / unique_customer, 2) AS repeated_rate
+FROM monthly_summary
+ORDER BY month;
+</sql><sql name="SQL 12">SELECT 
+       order_id,
+	   o.user_id,
+	   traffic_source
+FROM orders AS o
+JOIN users AS u
+ON o.user_id = u.id
+GROUP BY order_id, user_id</sql><sql name="SQL 13">SELECT 
+       strftime('%Y', created_at) AS year,
+	   COUNT(user_id)
+FROM orders 
+GROUP BY strftime('%Y', created_at);
+
+WITH yearly_orders AS (
+    SELECT 
+        strftime('%Y', created_at) AS year,
+        user_id,
+        COUNT(order_id) AS orders_per_user
+    FROM orders
+    GROUP BY strftime('%Y', created_at), user_id
+),
+yearly_summary AS (
+    SELECT 
+        year,
+        COUNT(DISTINCT user_id) AS unique_customer,
+        COUNT(CASE WHEN orders_per_user &gt; 1 THEN 1 END) AS repeated_customer
+    FROM yearly_orders
+    GROUP BY year
+)
+SELECT 
+    year,
+    unique_customer,
+    repeated_customer,
+    ROUND(1.0 * repeated_customer / unique_customer, 2) AS repeated_rate
+FROM yearly_summary
+ORDER BY year;
+</sql><current_tab id="8"/></tab_sql></sqlb_project>

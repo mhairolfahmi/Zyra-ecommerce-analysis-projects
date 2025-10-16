@@ -1,5 +1,6 @@
 # Zyra E-commerce Analaysis (2019-2023)
 <img width="2767" height="1600" alt="ecommerce study-1" src="https://github.com/user-attachments/assets/07b7e59b-060a-4ada-86cb-1a14f85bd83d" />
+
 ## Project Background
 Zyra is a US-based online fashion store that was established in 2018, that offers a wider variety of clothing that include top, bottom,dresses and accessories for men and women.
 

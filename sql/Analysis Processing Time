@@ -1,0 +1,42 @@
+-- Average Order Processing time
+SELECT 
+ROUND(AVG(JULIANDAY(shipped_at)-JULIANDAY(created_at))*24,0) AS avg_processing_hours
+FROM orders
+WHERE shipped_at IS NOT NULL;
+
+-- total average processing hours is 36 hours which is about more than 1 day
+
+--Average Order Processing Time per category
+SELECT CASE
+        WHEN p.category IN ('Tops & Tees', 'Fashion Hoodies & Sweatshirts', 'Sweaters', 'Blazers & Jackets') THEN 'Tops'
+        WHEN p.category IN ('Pants', 'Pants & Capris', 'Shorts', 'Jeans', 'Leggings', 'Skirts') THEN 'Bottoms'
+        WHEN p.category IN ('Dresses', 'Jumpsuits & Rompers', 'Suits', 'Suits & Sport Coats', 'Clothing Sets') THEN 'Dresses & One-Piece'
+        WHEN p.category IN ('Intimates', 'Underwear', 'Sleep & Lounge', 'Socks & Hosiery') THEN 'Intimates & Sleepwear'
+        WHEN p.category = 'Outerwear & Coats' THEN 'Outerwear'
+        WHEN p.category = 'Active' THEN 'Activewear'
+        WHEN p.category = 'Swim' THEN 'Swimwear'
+        WHEN p.category IN ('Plus', 'Maternity') THEN 'Fit-Specific'
+        WHEN p.category IN ('Accessories', 'Socks') THEN 'Accessories'
+        ELSE 'Other'
+		END as category_group,
+ROUND(AVG(JULIANDAY(o.shipped_at)-JULIANDAY(o.created_at))*24,0) AS avg_processing_hours
+FROM orders AS o
+JOIN order_items AS oi
+ON o.order_id = oi.order_id
+JOIN products AS p
+ON p.id = oi.product_id
+WHERE o.shipped_at IS NOT NULL
+GROUP BY category_group;
+
+-- EACH category have 36 hours of processing time
+
+--max processing time recorded
+SELECT 
+strftime('%Y-%m', created_at) AS month,
+ROUND(AVG(JULIANDAY(shipped_at)-JULIANDAY(created_at))*24,0) AS avg_processing_hours
+FROM orders
+WHERE shipped_at IS NOT NULL
+GROUP BY month;
+
+-- monthly trends is mostly in average of 36 avg processing time
+-- max avg processing time recorded is in feb 2019 at 40 hours

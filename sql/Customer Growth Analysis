@@ -1,0 +1,51 @@
+--YEARLY 
+
+WITH yearly_orders AS (
+    SELECT 
+        strftime('%Y', created_at) AS year,
+        user_id,
+        COUNT(order_id) AS orders_per_user
+    FROM orders
+    GROUP BY strftime('%Y', created_at), user_id
+),
+yearly_summary AS (
+    SELECT 
+        year,
+        COUNT(DISTINCT user_id) AS unique_customer,
+        COUNT(CASE WHEN orders_per_user > 1 THEN 1 END) AS repeated_customer
+    FROM yearly_orders
+    GROUP BY year
+)
+SELECT 
+    year,
+    unique_customer,
+    repeated_customer,
+    ROUND(1.0 * repeated_customer / unique_customer, 2) AS repeated_rate
+FROM yearly_summary
+ORDER BY year;
+
+--MONTHLY
+
+WITH monthly_orders AS (
+    SELECT 
+        strftime('%Y-%m', created_at) AS month,
+        user_id,
+        COUNT(order_id) AS orders_per_user
+    FROM orders
+    GROUP BY strftime('%Y-%m', created_at), user_id
+),
+monthly_summary AS (
+    SELECT 
+        month,
+        COUNT(DISTINCT user_id) AS unique_customer,
+        COUNT(CASE WHEN orders_per_user > 1 THEN 1 END) AS repeated_customer
+    FROM monthly_orders
+    GROUP BY month
+)
+SELECT 
+    month,
+    unique_customer,
+    repeated_customer,
+    ROUND(1.0 * repeated_customer / unique_customer, 2) AS repeated_rate
+FROM monthly_summary
+ORDER BY month;
